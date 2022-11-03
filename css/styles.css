@@ -275,6 +275,12 @@ nav > ul li a:hover{
     gap: 40px;
     margin-top: 25px;
     overflow-x: auto;
+    -ms-text-overflow: none;
+    scrollbar-width: none;
+}
+
+.boats-cards::-webkit-scrollbar{
+    display: none;
 }
 
 .card{
