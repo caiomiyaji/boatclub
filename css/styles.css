@@ -17,6 +17,16 @@
     font-family: var(--font1);
 }
 
+body{
+    background-color: var(--color5);
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Header */
 
 header{
@@ -44,7 +54,7 @@ nav{
     padding: 0px 25px;
 }
 
-nav > span{
+.logo{
     flex-grow: 1;
     font-weight: 600;
     font-size: 1.5rem;
@@ -64,9 +74,16 @@ nav > ul li a{
     font-weight: 500;
     font-size: 1rem;
     color: white;
+    transition: color .5s;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-nav button, .home-content button {
+nav > ul li a:hover{
+    color: var(--color1);
+}
+
+
+.main-button {
     background-image: linear-gradient(to left, var(--color3), var(--color1));
     padding: 10px 20px;
     border: none;
@@ -77,9 +94,10 @@ nav button, .home-content button {
     transition: all 0.5s;
     background-size: 200%;
     background-position: left;
+    cursor: pointer;
 }
 
-nav button:hover, .home-content button:hover{
+.main-button:hover{
     background-position: right;
 }
 
@@ -89,11 +107,12 @@ nav button:hover, .home-content button:hover{
 
 #home{
     position: relative;
-    background-image: url("../assets/boat-section-1.jpg");
+    background-image: url("../assets/backgrounds/boat-section-1.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 800px;
+    width: 100%;
 }
 
 .home-container{
@@ -123,6 +142,10 @@ nav button:hover, .home-content button:hover{
     max-width: 900px;
 }
 
+.home-content h1 span{
+    color: var(--color1);
+}
+
 .home-content p{
     margin-top: 20px;
     color: white;
@@ -134,18 +157,192 @@ nav button:hover, .home-content button:hover{
     padding: 10px 50px;
 }
 
-
-
-
-
-
-
-
-
+/* Section 1 Final*/
 
 /* Section 2*/
 
-.about-right img{
-    width: 200px;
-    height: 200px;
+#about, #boats{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+}
+
+.about-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1800px;
+    padding: 125px 25px;
+}
+
+.about-left{
+    text-align: center;
+    width: 50%;
+}
+
+.about-left img{
+    width: 80%;
+    height: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.about-right{
+    position: relative;
+    width: 50%;
+}
+
+.about-right h2, .boats-content h2{
+    margin-top: 25px;
+    font-size: 2rem;
+    max-width: 80%;
+}
+
+.about-right p{
+    margin-top: 10px;
+    line-height: 2rem;
+    max-width: 80%;
+}
+
+.about-right button{
+    position: absolute;
+    top: 80%;
+    padding: 10px 50px;
+}
+
+.section-title{
+    position: relative;
+    color: var(--color1);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.section-title::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-left: 10px;
+    height: 1px;
+    width: 50%;
+    background-color: var(--color1);
+}
+
+/* Section 1 Final*/
+
+/* Section 3 */
+
+#boats{
+    background-color: var(--color5);
+}
+
+.boats-content{
+    display: flex;
+    flex-direction: column;
+    padding: 125px 25px;
+    width: 100%;
+    max-width: 1800px;
+}
+
+.boats-content > h2 {
+    color: white;
+}
+
+.cards-buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.cards-buttons button{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1rem;
+    color: var(--color5);
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.cards-buttons button:hover{
+    color: var(--color1);
+}
+
+.boats-cards{
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+.card{
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+}
+
+.card > img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.card > h3{
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.card i{
+    color: var(--color3);
+}
+
+.card-location, .card-infos{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: black;
+}
+
+.card-location > p{
+    max-width: 250px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-infos{
+    gap: 0;
+    justify-content: space-between;
+}
+
+.card-infos div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-price{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.card-price > p{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.card button{
+    background-color: transparent;
+    border:  none;
+}
+
+.hide{
+    display: none;
 }

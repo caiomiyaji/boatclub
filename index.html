@@ -7,11 +7,13 @@
     <title>BoatClub</title>
 
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/script.js" defer></script>
+    <script type="module" src="./js/script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
@@ -20,7 +22,7 @@
 
     <header>
         <nav>
-            <span>BoatClub.</span>
+            <span class="logo">BoatClub.</span>
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">About us</a></li>
@@ -28,7 +30,7 @@
                 <li><a href="">How it works</a></li>
                 <li><a href="">Testmonials</a></li>
             </ul>
-            <button>Get access</button>
+            <button class="main-button">Get access</button>
         </nav>
     </header>
 
@@ -41,9 +43,9 @@
         <section id="home">
             <div class="home-container">
                 <div class="home-content">
-                    <h1>BoatClub provides you the best experience in the sea!</h1>
+                    <h1>BoatClub provides you the <span>best experience</span> in the sea!</h1>
                     <p>Enjoy exploring the ocean along your whole family with security, at the best price!</p>
-                    <button>Explore now</button>
+                    <button class="main-button">Explore now</button>
                 </div>
             </div>
         </section>
@@ -51,27 +53,56 @@
         <!--Section 2-->
 
         <section id="about">
-            <div class="about-left">
-                <h3>About us</h3>
-                <h2>Join us in the vast ocean</h2>
-                <p>Our mission is to help everyone getting access to the amazing experience of enjoying the sea at it's maximum.</p>
-                <button>Dive in</button>
-            </div>
-            <div class="about-right">
-                <img src="./assets/boat-section-2.jpg" alt="boat in the ocean">
+            <div class="about-content">
+                <div class="about-left">
+                    <img src="./assets/backgrounds/boat-section-2.jpg" alt="boat in the ocean">
+                </div>
+                <div class="about-right">
+                    <h3 class="section-title">About us</h3>
+                    <h2>Join us in the vast ocean</h2>
+                    <p>Our mission is to help everyone getting access to the amazing experience of enjoying the sea at it's maximum.<br> From ocean lovers to ocean lovers</p>
+                    <button class="main-button">Dive in</button>
+                </div>
             </div>
         </section>
 
         <!--Section 3-->
 
         <section id="boats">
-            <h3>Boats</h3>
-            <h2>Boats, Yachts, whatever you want...</h2>
-            <div class="boats-cards">
-                <div class="card">
-                    <img src="" alt="boat, yacht image">
-                    <h3>Boat name</h3>
-                    <button>See more</button>
+            <div class="boats-content">
+                <h3 class="section-title">Explore Boats</h3>
+                <h2>Boats, Yachts, whatever you want...</h2>
+                <div class="cards-buttons">
+                    <button class="left-button"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="right-button"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="boats-cards">
+                    <div class="card hide">
+                        <img src="https://images.pexels.com/photos/42092/pexels-photo-42092.jpeg?auto=compress&cs=tinysrgb&w=500&&dpr=1" alt="boat, yacht image">
+                        <h3>Fury Yacht</h3>
+                        <div class="card-location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>Praia do Boqueirão, Santos, SP</p>
+                        </div>
+                        <div class="card-infos">
+                            <div>
+                                <i class="fa-solid fa-users"></i>
+                                <p class="guests">10</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-bed"></i>
+                                <p class="beds">3</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-ruler-combined"></i>
+                                <p class="measurement">50.5m</p>
+                            </div>
+                        </div>
+                        <div class="card-price">
+                            <p>$120/day</p>
+                            <button>See more</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -79,7 +110,7 @@
         <!--Section 4-->
 
         <section id="how-it-works">
-            <h3>How it works</h3>
+            <h3 class="section-title">How it works</h3>
             <h2>How it works</h2>
             <div class="how-steps">
                 <div>
@@ -104,7 +135,7 @@
         <!--Section 5-->
 
         <section id="testimonials">
-            <h3>Testimonials</h3>
+            <h3 class="section-title">Testimonials</h3>
             <h2>What our client saying about us?</h2>
             <div class="testimonials-cards">
                 <div class="card">
