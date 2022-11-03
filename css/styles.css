@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+:root{
+    --font1 : 'Poppins', sans-serif;
+
+    --color1: #0FC2C0;
+    --color2: #0CABA8;
+    --color3: #008F8C;
+    --color4: #015958;
+    --color5: #023535;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font1);
+}
+
+/* Header */
+
+header{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    gap: 50px;
+    padding: 0px 25px;
+}
+
+nav > span{
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+nav > ul{
+    display: flex;
+    gap: 20px;
+}
+
+nav > ul li{
+    list-style: none;
+}
+
+nav > ul li a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+}
+
+nav button, .home-content button {
+    background-image: linear-gradient(to left, var(--color3), var(--color1));
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+    transition: all 0.5s;
+    background-size: 200%;
+    background-position: left;
+}
+
+nav button:hover, .home-content button:hover{
+    background-position: right;
+}
+
+/* Header final*/
+
+/*Section 1*/
+
+#home{
+    position: relative;
+    background-image: url("../assets/boat-section-1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 800px;
+}
+
+.home-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1800px;
+    padding: 0px 25px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.home-content h1{
+    margin-top: 250px;
+    color: white;
+    font-size: 3rem;
+    max-width: 900px;
+}
+
+.home-content p{
+    margin-top: 20px;
+    color: white;
+    max-width: 500px;
+}
+
+.home-content button{
+    margin-top: 100px;
+    padding: 10px 50px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Section 2*/
+
+.about-right img{
+    width: 200px;
+    height: 200px;
+}
