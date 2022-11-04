@@ -124,7 +124,7 @@ nav > ul li a:hover{
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
 }
 
 .home-content{
@@ -194,7 +194,7 @@ nav > ul li a:hover{
     width: 50%;
 }
 
-.about-right h2, .boats-content h2, .how-it-works-content h2, .testimonials-content h2, .last-call-content h2{
+.about-right h2, .boats-content h2, .how-it-works-content h2, .testimonials-content h2{
     margin-top: 25px;
     font-size: 2rem;
     max-width: 80%;
@@ -512,16 +512,43 @@ nav > ul li a:hover{
 
 .last-call-content{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    gap: 50px;
     background-color: white;
     padding: 25px 50px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     border-radius: 10px;
 }
 
+.right-action{
+    display: flex;
+    align-items: center;
+}
+
+.right-action img{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.left-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.left-action h2{
+    font-size: 2rem;
+}
+
+.last-call-content p{
+    margin-top: 25px;
+}
+
 .last-call-content button{
-    margin-top: 100px;
+    margin-top: 80px;
     width: 200px;
 }
