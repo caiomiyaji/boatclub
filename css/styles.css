@@ -161,7 +161,7 @@ nav > ul li a:hover{
 
 /* Section 2*/
 
-#about, #boats{
+#about, #boats, #how-it-works{
     display: flex;
     justify-content: center;
     background-color: white;
@@ -228,7 +228,7 @@ nav > ul li a:hover{
     background-color: var(--color1);
 }
 
-/* Section 1 Final*/
+/* Section 2 Final*/
 
 /* Section 3 */
 
@@ -348,6 +348,22 @@ nav > ul li a:hover{
     background-color: transparent;
     border:  none;
 }
+
+/* Section 3 Final*/
+
+/* Section 4 */
+
+.how-it-works-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1800px;
+    padding: 125px 25px;
+}
+
+
+
+
 
 .hide{
     display: none;
