@@ -1,20 +1,23 @@
 import {boats} from "./boats.js";
-
-const [...shuffleBoats] = boats;
-
-shuffleBoats.sort(() => {
-    return Math.random() - 0.5
-});
-
-const carouselBoats = shuffleBoats.slice(0, 10);
+import { testimonials } from "./testimonials.js";
 
 // Functions
+
+//Shuffle a list
+const shuffleList = (list) => {
+    const [...shuffledList] = list;
+
+    shuffledList.sort(() => {
+        return Math.random() - 0.5;
+    });
+
+    return shuffledList;
+}
 
 //Add boat to carousel
 const insertBoat = (boatCards, cardSample, currentBoat) => {
     const newCard = cardSample.cloneNode(true);
     newCard.classList.remove('hide')
-    newCard.classList.add('visible-card')
     const cardImg = newCard.querySelector('img').src = currentBoat.pictures;
     const cardTitle = newCard.querySelector('h3').textContent = currentBoat.name;
     const cardLocation = newCard.querySelector('.card-location > p').textContent = currentBoat.location;
@@ -45,8 +48,25 @@ const moveCarousel = (currentButton, container, containerWidth) => {
     }
 }
 
+//Add testimonial to carousel
+const insertTestimonial = (testimonialContainer, cardSample, currentTestimonial) => {
+    const newCard = cardSample.cloneNode(true);
+    newCard.classList.remove('hide');
+    const cardImg = newCard.querySelector('img').src = currentTestimonial.picture;
+    const cardName = newCard.querySelector('[data-name]').textContent = `${currentTestimonial.name}, ${currentTestimonial.age}`;
+    const cardMessage = newCard.querySelector('p:not([data-name]').textContent = currentTestimonial.message;
+
+    testimonialContainer.append(newCard);
+}
 
 // events
+
+//Shuffle Boats
+const shuffledBoats = shuffleList(boats);
+const carouselBoats = shuffledBoats.slice(0, 10);
+
+//Shuffle Testimonials
+const shuffledTestmonials = shuffleList(testimonials);
 
 //When page loads
 window.addEventListener('load', (e) => {
@@ -55,6 +75,13 @@ window.addEventListener('load', (e) => {
 
     carouselBoats.forEach((boat) => {
         insertBoat(boatsCards, cardSample, boat);
+    })
+
+    const testimonialCards = document.querySelector('.testimonials-cards');
+    const testCardSample = document.querySelector('.testimonials-cards .card');
+
+    shuffledTestmonials.forEach((testimonial) => {
+        insertTestimonial(testimonialCards, testCardSample, testimonial);
     })
 
 })
