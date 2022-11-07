@@ -86,6 +86,21 @@ window.addEventListener('load', (e) => {
 
 })
 
+//When page resizes
+window.addEventListener('resize', (e) => {
+    const navUl = document.querySelector('nav ul');
+    const navButton = document.querySelector('nav button');
+    const header = document.querySelector('header');
+
+    document.body.style.overflowY = 'auto'
+    if (window.innerWidth <= 880) {
+        navUl.classList.remove('nav-visible') 
+        header.classList.remove('black-header');
+    }else if (window.innerWidth > 880) {
+        navUl.classList.add('nav-visible');
+    }
+})
+
 //Carousel Next-Prev
 const carouselButtons = document.querySelectorAll('.cards-buttons button');
 
@@ -99,6 +114,35 @@ carouselButtons.forEach((button) => {
     })
 })
 
+//When menu-icon is clicked
+const menuIcon = document.querySelector('.menu-icon');
 
+menuIcon.addEventListener('click', (e) => {
+    const navUl = document.querySelector('nav ul');
+    const header = document.querySelector('header');
 
+    if(!navUl.classList.contains('nav-visible')){
+        document.body.style.overflowY = 'hidden';
+    }else{
+        document.body.style.overflowY = 'auto';
+    }
 
+    navUl.classList.toggle('nav-visible');
+    header.classList.toggle('black-header');
+})
+
+//When nav links is clicked
+const navLinks = document.querySelectorAll('nav a');
+
+navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+        const navUl = document.querySelector('nav ul');
+        const header = document.querySelector('header');
+
+        if(window.innerWidth <= 880){
+            document.body.style.overflowY = 'auto';
+            navUl.classList.remove('nav-visible');
+            header.classList.remove('black-header')
+        }
+    })
+})

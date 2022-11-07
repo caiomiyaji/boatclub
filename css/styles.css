@@ -16,6 +16,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font1);
+    scroll-behavior: smooth;
 }
 
 body{
@@ -58,7 +59,8 @@ nav{
 .logo{
     flex-grow: 1;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    color: white;
 }
 
 nav > ul{
@@ -83,10 +85,9 @@ nav > ul li a:hover{
     color: var(--color1);
 }
 
-
 .main-button {
     background-image: linear-gradient(to left, var(--color3), var(--color1));
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -102,7 +103,19 @@ nav > ul li a:hover{
     background-position: right;
 }
 
-/* Header final*/
+.mobile{
+    display: none;
+}
+
+.menu-icon{
+    display: none;
+    font-size: 2rem;
+    text-align: end;
+    width: 45px;
+    height: 45px;
+}
+
+/* Header End*/
 
 /*Section 1*/
 
@@ -155,10 +168,10 @@ nav > ul li a:hover{
 
 .home-content button{
     margin-top: 100px;
-    padding: 10px 50px;
+    padding: 12px 50px;
 }
 
-/* Section 1 Final*/
+/* Section 1 End*/
 
 /* Section 2*/
 
@@ -180,6 +193,7 @@ nav > ul li a:hover{
 .about-left{
     text-align: center;
     width: 50%;
+
 }
 
 .about-left img{
@@ -192,6 +206,7 @@ nav > ul li a:hover{
 .about-right{
     position: relative;
     width: 50%;
+ 
 }
 
 .about-right h2, .boats-content h2, .how-it-works-content h2, .testimonials-content h2{
@@ -229,7 +244,7 @@ nav > ul li a:hover{
     background-color: var(--color1);
 }
 
-/* Section 2 Final*/
+/* Section 2 End*/
 
 /* Section 3 */
 
@@ -377,7 +392,7 @@ nav > ul li a:hover{
     display: none;
 }
 
-/* Section 3 Final*/
+/* Section 3 End*/
 
 /* Section 4 */
 
@@ -400,11 +415,18 @@ nav > ul li a:hover{
     margin-top:80px;
 }
 
+.how-left, .how-right{
+    display: flex; 
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
 .steps{
     text-align: center;
     flex-basis: 25%;
     min-width: 250px;
     padding: 25px;
+    flex-grow: 1;
 }
 
 .steps svg{
@@ -426,7 +448,7 @@ nav > ul li a:hover{
     margin-top: 10px;
 }
 
-/* Section 4 Final*/
+/* Section 4 End*/
 
 /* Section 5 */
 
@@ -495,7 +517,7 @@ nav > ul li a:hover{
     display: none;
 }
 
-/* Section 5 Final*/
+/* Section 5 End*/
 
 /* Section 6 */
 
@@ -522,25 +544,24 @@ nav > ul li a:hover{
     border-radius: 10px;
 }
 
-.right-action{
+.left-action{
     display: flex;
     align-items: center;
 }
 
-.right-action img{
+.left-action img{
     border-radius: 50%;
     height: 200px;
     width: 200px;
 }
 
-.left-action {
+.right-action {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1;
 }
 
-.left-action h2{
+.right-action h2{
     font-size: 2rem;
 }
 
@@ -551,4 +572,287 @@ nav > ul li a:hover{
 .last-call-content button{
     margin-top: 80px;
     width: 200px;
+}
+
+/* Section 6 End*/
+
+/* Footer */
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1800px;
+    padding: 125px 25px;
+}
+
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top span{
+    flex-grow: 0;
+}
+
+.footer-top h4{
+    font-size: 1.7rem;
+    color: white;
+}
+
+.footer-top button{
+    padding: 12px 40px;
+}
+
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 75px;
+    color: white;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.footer-bottom h4{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.footer-bottom ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.footer-bottom li{
+    list-style: none;
+}
+
+.footer-bottom a{
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.footer-right ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-right i{
+    font-size: 2.2rem;
+}
+
+/* Footer End*/
+
+
+/* Responsive */
+
+@media (max-width: 880px){
+
+    /* Header */
+    .black-header{
+        background-color: black;
+    }
+
+    nav{
+        position: relative;
+    }
+
+    nav > ul{
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: calc(100vh - 60px);
+        text-align: center;
+        padding: 50px 25px;
+
+        display: none;
+
+        background-color: black;
+        flex-grow: 1;
+    }
+
+    .nav-visible{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    nav > button{
+        display: none;
+    }
+
+    .mobile{
+        display: inline;
+        margin-top: 50px;
+    }
+
+    .mobile button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .menu-icon{
+        display: inline;
+    }
+
+      /* Header End*/
+
+      /* Section 1*/
+
+    .home-content h1{
+        font-size: 2.5rem;
+        max-width: 100%;
+    }
+
+    .home-content button{
+        margin: 100px auto 0 auto;
+    }
+
+      /* Section 1 End*/
+
+      /* Section 2*/
+
+    .about-content{
+        flex-direction: column-reverse;
+    }
+
+    .about-left, .about-right{
+        width: 100%;
+    }
+
+    .about-left img{
+        margin-top: 50px;
+        width: 100%;
+        height: 400px;
+    }
+
+    .about-right h2, .boats-content h2, .how-it-works-content h2, .testimonials-content h2, .about-right p {
+        max-width: 100%;
+    }
+
+    .about-right button{
+        display: none;
+    }
+
+    .section-title::after{
+        width: 100px;
+
+    }
+
+    /* Section 2 End*/
+
+    /* Footer */
+
+    .footer-top h4{
+        font-size: 1.3rem;
+    }
+
+     /* Footer End */
+}
+
+@media (max-width: 750px){
+
+    /* Section 6*/
+
+    .last-call-content{
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .right-action button{
+        margin: 80px auto 0 auto;
+    }
+
+    /* Section 6 End*/
+}
+
+@media (max-width: 700px){
+    /* Footer */
+
+    .footer-top h4 {
+        display: none;
+    }
+
+    .footer-bottom{
+        margin-top: 150px;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .footer-right, .footer-left, .footer-center{
+        position: relative;
+    }
+
+    .footer-right::before, .footer-left::before, .footer-center::before{
+        content: '';
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1px;
+        width: 280px;
+        background-color: white;
+    }
+
+    /* Footer End */
+}
+
+@media (max-width: 550px){
+    .home-content h1{
+        margin-top: 200px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 400px){
+    nav, .home-content{
+        padding: 0px 10px;
+    }
+
+    .about-content, .boats-content, .how-it-works-content, .testimonials-content, #last-call-action{
+        padding: 125px 10px;
+    }
+
+    .about-left img{
+        height: 350px;
+    }
+
+    .about-right h2, .boats-content h2, .how-it-works-content h2, .testimonials-content h2{
+        font-size: 1.5rem;
+        max-width: 100%;
+    }
+
+    .right-action h2{
+        font-size: 1.5rem;
+    }
+
+    .left-action img{
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+    }
+
+    .footer-top button{
+        padding: 12px 20px;
+    }
 }
