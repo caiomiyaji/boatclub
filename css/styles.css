@@ -474,11 +474,14 @@ nav > ul li a:hover{
     gap: 10px;
     margin-top: 80px;
     overflow-x: auto;
+    -ms-text-overflow: none;
+    scrollbar-width: none;
 }
 
 .testimonials-cards::-webkit-scrollbar{
     display: none;
 }
+
 
 .testimonials-cards .card{
     display: flex;
@@ -486,18 +489,16 @@ nav > ul li a:hover{
     align-items: center;
     gap: 20px;
     padding: 25px;
-    min-width: 575px;
+    min-width: 500px;
     height: 300px;
     text-align: center;
-    opacity: .9;
+    opacity: .5;
+    transition: all .5s;
 }
 
-/*
-.testimonials-cards .focused-card{
+.testimonials-cards .focused-card {
     opacity: 1;
-    padding: 50px;
 }
-*/
 
 .testimonials-cards .card > img{
     border: 3px solid var(--color3);
@@ -511,7 +512,13 @@ nav > ul li a:hover{
     font-size: 1.2rem;
 }
 
-
+.testimonials-cards .card p:not([data-name]){
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .testimonials-cards .hide{
     display: none;
@@ -786,6 +793,15 @@ footer{
 }
 
 @media (max-width: 700px){
+    
+    /* Section 5*/
+
+    .testimonials-cards .card{
+        min-width: 400px;
+    }
+
+    /* Section 5 End*/
+
     /* Footer */
 
     .footer-top h4 {
@@ -822,6 +838,14 @@ footer{
         margin-top: 200px;
         font-size: 2rem;
     }
+
+     /* Section 5*/
+
+     .testimonials-cards .card{
+        min-width: 350px;
+    }
+
+    /* Section 5 End*/
 }
 
 @media (max-width: 400px){
@@ -840,6 +864,10 @@ footer{
     .about-right h2, .boats-content h2, .how-it-works-content h2, .testimonials-content h2{
         font-size: 1.5rem;
         max-width: 100%;
+    }
+
+    .testimonials-cards .card{
+        min-width: 300px;
     }
 
     .right-action h2{

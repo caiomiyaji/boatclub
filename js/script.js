@@ -14,6 +14,16 @@ const shuffleList = (list) => {
     return shuffledList;
 }
 
+//Change testimonial card opacity
+const effectTestimonialCarousel = (container, card) => {
+    const cardRightClient = card.getBoundingClientRect().right;
+        if(cardRightClient <= container.offsetWidth + 100 && cardRightClient > 300){
+            card.classList.add('focused-card')
+        }else{
+            card.classList.remove('focused-card')
+        }
+}
+
 //Add boat to carousel
 const insertBoat = (boatCards, cardSample, currentBoat) => {
     const newCard = cardSample.cloneNode(true);
@@ -29,7 +39,7 @@ const insertBoat = (boatCards, cardSample, currentBoat) => {
     boatCards.append(newCard);
 }
 
-//Move the carousel
+//Move the boat carousel
 const moveCarousel = (currentButton, container, containerWidth) => {
     const nextButton = currentButton.classList.contains('right-button');
 
@@ -59,6 +69,39 @@ const insertTestimonial = (testimonialContainer, cardSample, currentTestimonial)
     testimonialContainer.append(newCard);
 }
 
+// Move testimonial carousel Next-Prev
+const moveTestimonialCarousel = (button) => {
+    const rightButton = button.classList.contains('right-button');
+    const cardsContainer = document.querySelector('.testimonials-cards');
+    const cards = Array.from(cardsContainer.querySelectorAll(".card:not(.hide)"));
+
+    let moveCardIndex;
+
+    if(rightButton){
+        const lastFocusedCard = cards.findLast((card) => {
+            if(card.classList.contains('focused-card')){
+                return card
+            };
+        })
+        moveCardIndex = cards.indexOf(lastFocusedCard) + 1
+    }else{
+        const firstFocusedCard = cards.find((card) => {
+            if(card.classList.contains('focused-card')){
+                return card
+            }
+        })
+        moveCardIndex = cards.indexOf(firstFocusedCard) - 1
+    }
+
+    if(moveCardIndex < cards.length && moveCardIndex >= 0){
+        cards[moveCardIndex].scrollIntoView({
+            block: 'nearest',
+            inline: 'center',
+            method: 'smooth'
+        })
+    }
+}
+
 // events
 
 //Shuffle Boats
@@ -84,6 +127,12 @@ window.addEventListener('load', (e) => {
         insertTestimonial(testimonialCards, testCardSample, testimonial);
     })
 
+    const testimonialContainer = document.querySelector('.testimonials-cards');
+    const cards = testimonialContainer.querySelectorAll('.card');
+
+    cards.forEach((card) => {
+        effectTestimonialCarousel(testimonialContainer, card);
+    })
 })
 
 //When page resizes
@@ -102,7 +151,7 @@ window.addEventListener('resize', (e) => {
 })
 
 //Carousel Next-Prev
-const carouselButtons = document.querySelectorAll('.cards-buttons button');
+const carouselButtons = document.querySelectorAll('.boats-content .cards-buttons button');
 
 carouselButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -144,5 +193,25 @@ navLinks.forEach((link) => {
             navUl.classList.remove('nav-visible');
             header.classList.remove('black-header')
         }
+    })
+})
+
+//When testimonial carousel scrolls
+const testimonialContainer = document.querySelector('.testimonials-cards');
+
+testimonialContainer.addEventListener('scroll', (e) => {
+    const cards = testimonialContainer.querySelectorAll('.card:not(.hide)');
+
+    cards.forEach((card) => {
+        effectTestimonialCarousel(testimonialContainer, card);
+    })
+})
+
+//When testimonial buttons are clicked
+const  testimonialButtons = document.querySelectorAll('.testimonials-content .cards-buttons button')
+
+testimonialButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        moveTestimonialCarousel(button);
     })
 })
